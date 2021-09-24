@@ -61,7 +61,8 @@ p{
 }
 
 input{
-
+  display: flex;
+  flex-direction: column wrap;
     height: 35px;
   width: 300px;
   margin-bottom: 5px;
