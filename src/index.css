@@ -11,3 +11,66 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.content{
+  display: flex;
+  flex-flow: column wrap;
+  align-content: center;
+  font-weight: bold;
+  background-color: red;
+}
+
+div{
+  
+  width : 100%;
+  height: 65%;
+  background:White;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 10px;
+ 
+}
+
+button{
+  display: flex;
+  flex-direction: column wrap;
+  padding-top: 5px;
+  align-content: flex-start;
+  text-align: left;
+  outline: none;
+  border: none;
+  text-transform: uppercase;
+  color: blue;
+  cursor: pointer;
+}
+
+h3{
+  display: flex;
+  flex-direction: column wrap;
+  align-content: center;
+  padding-top:25% ;
+  padding-left: 75px;
+  color: orange;
+  align-content: center;
+}
+p{
+  padding-left: 125px;
+  align-content: center;
+}
+
+input{
+
+    height: 35px;
+  width: 300px;
+  margin-bottom: 5px;
+  text-align: left;
+  border-color: grey;
+  border-width: 1px;
+}
+form{
+  align-content: center;
+}
+
+
