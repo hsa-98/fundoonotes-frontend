@@ -5,11 +5,11 @@ import Register from  './components/Register';
 function App() {
   return(
     <>
-    {/* <Switch>
+    <Switch>
       <Route path='/login' component={Login}/>
       <Route path ='/register' component={Register}/>
       <Route exact path = '/' component = {Login}/>
-    </Switch> */}
+    </Switch>
     </>
   );
 }
