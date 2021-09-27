@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import {Button, Grid, Link, Paper, TextField, Typography} from '@material-ui/core';
-import axios from 'axios';
+import {login} from '../Services/User';
 
 const Login = ()=>{
-    const paperStyle = {padding :20,height:'70vh',width:280,margin:"20px auto"};
-    const head = {color : "orange"}
-    const fieldStyle = {margin:'10px 0'}
-    const buttonStyle = {marginLeft:'100px' }
-    const linkStyle = {marginBottom : '50px'}
+    const paperStyle = {padding :20,height:'70vh',width:380,margin:"20px auto"};
+    const head = {color : "orange"};
+    const fieldStyle = {margin:'2vh 0'};
+    const buttonStyle = {marginLeft:190 };
+    const linkStyle = {marginBottom : 50};
+
 
     const[data,setData] = useState({
         emailId :'',
@@ -16,13 +17,13 @@ const Login = ()=>{
         
       const onSubmit = (event)=>{
         event.preventDefault();
-        axios.post("http://localhost:4000/login",data)
+        login(data)
           .then(response => console.log(response ))
           .catch(error=>console.log(error))
       }
 
       const inputEvent = (event)=>{
-        console.log(event.target.value)
+        console.log(event.target.id)
         const id = event.target.id;
         const value =event.target.value;
         setData((preValue)=>{
