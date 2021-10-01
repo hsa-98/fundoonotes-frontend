@@ -1,0 +1,55 @@
+.paperStyle{
+    padding-top:5vh;
+    padding-right: 1vh;
+    padding-left: 4vh;
+    height:78vh;
+    width: 120vh;
+    margin:12vh auto};
+
+.textStyle {
+    width: 22vh;
+    padding-right: 20vh
+ 
+    };
+
+.textField{
+    width:52vh;
+    margin-top:20px;
+    padding: 20vh
+};
+
+
+.head {
+    color : orange};
+
+.button{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    padding-top: 5vh;
+    padding-left: 15vh
+    
+    
+    };
+.box{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    padding-top: 5vh;
+}   
+
+.name{
+    display: flex;
+    flex-flow: row wrap;
+   
+}
+
+.register-avatar{
+    position: relative;
+    width: 250px;
+    height: 120%;
+    left: 80vh;
+    bottom: 55vh;
+  
+}
+

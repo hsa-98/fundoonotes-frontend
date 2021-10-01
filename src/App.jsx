@@ -1,6 +1,6 @@
 import { Switch,Route } from 'react-router-dom';
-import Login from './Pages/Login'
-import Register from  './Pages/Register';
+import Login from './Pages/Login/Login'
+import Register from  './Pages/Register/Register';
 
 function App() {
   return(

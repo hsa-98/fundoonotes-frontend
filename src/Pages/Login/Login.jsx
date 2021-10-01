@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import {Button, Grid, Link, Paper, TextField, Typography} from '@material-ui/core';
-import {login} from '../Services/User';
-
+import {login} from '../../Services/User';
+import './Login.scss'
 const Login = ()=>{
-    const paperStyle = {padding :20,height:'70vh',width:380,margin:"20px auto"};
+    const paperStyle = {padding :'10vh',height:'70vh',width:'80vh',margin:"20px auto"};
     const head = {color : "orange"};
     const fieldStyle = {margin:'2vh 0'};
-    const buttonStyle = {marginLeft:190 };
-    const linkStyle = {marginBottom : 50};
+    
 
 
     const[data,setData] = useState({
@@ -44,7 +43,7 @@ const Login = ()=>{
       }
     
     return(
-        <Grid >
+        <Grid  >
             <Paper elevation = {10} style = {paperStyle}>
                 <Grid align = 'center'>
                     <h2 style={head}>FUNDOONOTES</h2>
@@ -65,13 +64,15 @@ const Login = ()=>{
                     onChange = {inputEvent} 
                     required  
                     style = {fieldStyle}/>
-                <Typography 
-                    style ={linkStyle}>
-                <Link>Forgot Password</Link>
-                </Typography>
                 <Typography>
-                <Button href='/register' color='primary'>Register</Button>
-                <Button type = "Submit" color = "primary" variant = "contained" onClick = {onSubmit} style = {buttonStyle}>Sign In</Button>
+                <Button type = "Submit" color = "primary" variant = "contained" onClick = {onSubmit} className='signIn' fullWidth>Sign In</Button>
+                </Typography>
+              
+                <Typography >
+                  <p className='register'>Create a new account?<Button href='/register' color='primary' variant = 'text'>Register</Button></p>
+                </Typography>
+                <Typography >
+                <Link>Forgot Password</Link>
                 </Typography>
             </Paper>
         </Grid>
