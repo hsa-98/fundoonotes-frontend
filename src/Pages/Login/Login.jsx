@@ -76,7 +76,9 @@ const Login = ()=>{
           }}
             validationSchema ={ yup.object({
               emailId: yup.string().email('Invalid Email address').required('Required'),
-              password:yup.string().required('Required')
+              password:yup.string().matches(/^(?=.*[!@#$%^&+=])(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/
+                        ,"Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character")
+                        .required('Required')
       
             })}
             onSubmit = {values=>{
