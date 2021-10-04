@@ -3,11 +3,13 @@ import {login} from '../../Services/User';
 import { ErrorMessage ,Formik, Field, Form} from 'formik';
 import * as yup from 'yup';
 import './Login.scss'
+import { useHistory} from 'react-router';
+
 const Login = ()=>{
     const paperStyle = {padding :'10vh',height:'70vh',width:'80vh',margin:"20px auto"};
     const head = {color : "orange"};
     const fieldStyle = {margin:'5vh 0'};
-    
+    const history = useHistory();    
 
 
     // const[data,setData] = useState({
@@ -69,6 +71,7 @@ const Login = ()=>{
       
       
     return(
+  
         <Formik 
           initialValues ={{
             emailId:'',
@@ -76,15 +79,16 @@ const Login = ()=>{
           }}
             validationSchema ={ yup.object({
               emailId: yup.string().email('Invalid Email address').required('Required'),
-              password:yup.string().matches(/^(?=.*[!@#$%^&+=])(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/
-                        ,"Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character")
+              password:yup.string()
                         .required('Required')
       
             })}
             onSubmit = {values=>{
               console.log(values);
               login(values)
-                .then(response => console.log(response ))
+                .then(response => {
+                      history.push('/dashboard')
+                })
                 .catch(error=>console.log(error))
             }}
         >
@@ -146,6 +150,7 @@ const Login = ()=>{
         </Grid>
         )} 
         </Formik>
+        
     
         
     )

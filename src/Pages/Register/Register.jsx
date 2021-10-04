@@ -1,6 +1,7 @@
 import {Button, Grid,Paper, TextField, Typography} from '@material-ui/core';
 import {register} from '../../Services/User';
 import {Formik,Form,ErrorMessage,Field} from 'formik';
+import { useHistory} from 'react-router';
 import * as yup from 'yup'
 import '../Register/Register.scss';
 const Register = ()=>{
@@ -50,6 +51,7 @@ const Register = ()=>{
     //         .catch(error=>console.log(error));
         
     // }
+    const history = useHistory()    
     return(
         
         
@@ -73,7 +75,7 @@ const Register = ()=>{
                     onSubmit = {values=>{
                         console.log(values);
                         register(values)
-                            .then(response=>console.log(response))
+                            .then(response=> history.push('/login'))
                             .catch(error=>console.log(error));
                         
                     }}
@@ -136,6 +138,7 @@ const Register = ()=>{
                             <Grid item  sm = {3}>
                                 <Field
                                     as = {TextField}
+                                    type='password'
                                     id = 'password'
                                     label = "password"
                                     variant = "outlined"
@@ -148,6 +151,7 @@ const Register = ()=>{
                             <Grid item sm = {3}>
                                 <Field
                                     as = {TextField}
+                                    type='password'
                                     id = 'confirmPassword'
                                     label = "confirmPassword"
                                     variant = "outlined"
