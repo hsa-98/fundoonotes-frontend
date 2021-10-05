@@ -87,6 +87,11 @@ const Login = ()=>{
               console.log(values);
               login(values)
                 .then(response => {
+                
+                  const token = response.data.data.token
+                  console.log(token);
+                  localStorage.setItem('token', token);
+                  localStorage.getItem('token');
                       history.push('/dashboard')
                 })
                 .catch(error=>console.log(error))
