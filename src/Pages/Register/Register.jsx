@@ -170,6 +170,8 @@ const Register = ()=>{
                                     className = "button" 
                                     variant ="contained"
                                     color='primary' 
+                                    
+
                                 >
                                     Register
                                 </Button>
