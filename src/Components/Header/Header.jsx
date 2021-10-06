@@ -14,8 +14,8 @@ import Refresh from '@mui/icons-material/Refresh';
 import GridView from '@mui/icons-material/GridView';
 import { Settings,Apps } from '@material-ui/icons';
 import { TextField} from '@mui/material';
-import '../Components/Header.scss'
-import logo from '../Images/note.png'
+import '../Header/Header.scss'
+import logo from '../../Images/note.png'
     
 
 

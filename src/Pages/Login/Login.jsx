@@ -2,12 +2,13 @@ import {Button, Grid, Link, Paper, TextField, Typography} from '@material-ui/cor
 import {login} from '../../Services/User';
 import { ErrorMessage ,Formik, Field, Form} from 'formik';
 import * as yup from 'yup';
-import './Login.scss'
+import '../Login/Login.scss'
 import { useHistory} from 'react-router';
+import FundooHeader from '../../Components/FundooHeader/FundooHeader';
 
 const Login = ()=>{
     const paperStyle = {padding :'10vh',height:'70vh',width:'80vh',margin:"20px auto"};
-    const head = {color : "orange"};
+   
     const fieldStyle = {margin:'5vh 0'};
     const history = useHistory();    
 
@@ -65,11 +66,7 @@ const Login = ()=>{
     //       .catch(error=>console.log(error))
     //   }
     //   })
-  
         
-      
-      
-      
     return(
   
         <Formik 
@@ -84,14 +81,13 @@ const Login = ()=>{
       
             })}
             onSubmit = {values=>{
-              console.log(values);
               login(values)
                 .then(response => {
-                
+
                   const token = response.data.data.token
-                  console.log(token);
+                  
                   localStorage.setItem('token', token);
-                  localStorage.getItem('token');
+                  
                       history.push('/dashboard')
                 })
                 .catch(error=>console.log(error))
@@ -103,7 +99,7 @@ const Login = ()=>{
             <Paper elevation = {10} style = {paperStyle}>
               
                   <Grid align = 'center'>
-                      <h2 style={head}>FUNDOONOTES</h2>
+                      <FundooHeader/>
                       <h2 >Sign In</h2>
                   </Grid>
                   <Form onSubmit={formik.handleSubmit}> 

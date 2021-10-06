@@ -6,7 +6,7 @@ import { Form, Formik ,Field} from 'formik';
 import * as Yup from 'yup'
 import AddIcon from '@mui/icons-material/Add';
 import AddCircleTwoToneIcon from '@mui/icons-material/AddCircleTwoTone';
-import {createNote} from '../Services/Note'
+import {createNote} from '../../Services/Note'
 
 export default function CreateNote(){
     

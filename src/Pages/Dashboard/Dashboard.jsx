@@ -1,5 +1,5 @@
-import Header from '../../Components/Header'
-import CreateNote from '../../Components/CreateNote'
+import Header from '../../Components/Header/Header'
+import CreateNote from '../../Components/CreateNote/CreateNote'
 
 export default function DashBoard(){
   return(

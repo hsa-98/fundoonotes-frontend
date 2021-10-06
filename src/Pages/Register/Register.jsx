@@ -4,6 +4,7 @@ import {Formik,Form,ErrorMessage,Field} from 'formik';
 import { useHistory} from 'react-router';
 import * as yup from 'yup'
 import '../Register/Register.scss';
+import FundooHeader from '../../Components/FundooHeader/FundooHeader';
 const Register = ()=>{
     // const inputEvent = (event)=>{
     //     console.log(event.target.value);
@@ -83,7 +84,7 @@ const Register = ()=>{
                 {formik =>(
                     <>
                     <Grid>
-                    <h2 className = "head" >FUNDOONOTES</h2>
+                    <FundooHeader/>
                     <h4>Please Fill Details to Create an Account</h4>
                     </Grid>
                     
