@@ -1,74 +1,98 @@
 import './CreateNote.scss';
-
-import { Paper } from '@material-ui/core';
-import { Collapse, IconButton, InputBase, TextField } from '@mui/material';
-import { Form, Formik ,Field} from 'formik';
-import * as Yup from 'yup'
-import AddIcon from '@mui/icons-material/Add';
+import React, { useState } from 'react';
+import Accordion from '@mui/material/Accordion';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import {  IconButton, InputBase } from '@mui/material';
 import AddCircleTwoToneIcon from '@mui/icons-material/AddCircleTwoTone';
 import {createNote} from '../../Services/Note'
+import { Paper } from '@material-ui/core';
+import AddAlertIcon from '@mui/icons-material/AddAlert';
+import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
+import ColorLensIcon from '@mui/icons-material/ColorLens';
+import ImageIcon from '@mui/icons-material/Image';
+import ArchiveIcon from '@mui/icons-material/Archive';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+import UndoIcon from '@mui/icons-material/Undo';
+import RedoIcon from '@mui/icons-material/Redo';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-export default function CreateNote(){
-    
-    
-    return(
+export default function CreateNote(props){
+    const [expanded, setExpanded] = React.useState(false);
 
-            <Formik
-                initialValues = {{
-                    title:'',
-                    description:''
-                }}
-                validationSchema={Yup.object({
-                    title:Yup.string(),
-                    description:Yup.string().required()
-                })}
-                onSubmit = {values=>{
-                    console.log(values);
-                    createNote(values).then((response)=>alert('note created'))
-                                    .catch((err)=>alert('failed',err))
-                }}
-            >
-            {formik=>(
-              <>
-              <Form onSubmit = {formik.handleSubmit}>
-                <div className='title'>
-                <Field
-                    as={TextField}
+    const [data,setData] = useState({title:'',
+    description:''})
+        const handleChange = (panel)=>(event,isExpanded)=>{
+            setExpanded(panel);
+        }
+       const onChange=(event)=>{
+            const id = event.target.id
+            const value= event.target.value
+            console.log(id,value);
+            setData((preValue)=>{
+                if(id === 'title'){
+
+                    return {
+                        title:value,
+                        description:preValue.description
+                    }
+                }else{
+                    return{
+                        title:preValue.title,
+                        description:value
+                    }
+                }
+            })
+       }
+       const onSubmit=(event)=>{
+           setExpanded(false);
+            createNote(data).then((response)=>props.passNote(data))
+                            .catch((err)=>alert('failed',err))
+        
+       }
+    return(                
+        <div>
+              
+                 <Paper elevation={5} style = {{marginTop:'5vh',marginLeft:'50vh', marginBottom:'5vh',width:'100vh' }}> 
+            <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')} > 
+              <AccordionSummary  
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel1bh-content"
+                id="panel1bh-header">
+                <InputBase
                     id='title'
-                    name='title'
-                    label='Title'
-                    className='title'
-                    size='medium'
-                    style={{width:'100vh'}}
-                    value={formik.values.title}
-                    onChange ={formik.handleChange}
-                    
-                />
-                </div>
-                    <div className='note'>
-                    <Field
-                    as={TextField}
+                    placeholder='Title'
+                    onChange={onChange}
+                    style={{width:'80vh',height:'5vh'}}>
+                </InputBase>
+              </AccordionSummary>
+              <AccordionDetails>
+              <InputBase
+                    id='description'
                     placeholder='Note'
-                     id='description'
-                    name='description'
-                    label='Note'
-                    value={formik.values.description}
-                    onChange = {formik.handleChange}
-                    onBlur = {formik.handleBlur}
-                    style={{width:'100vh'}}
-                    />
-                    <IconButton type='Submit' >   
-                        <AddCircleTwoToneIcon fontSize='large' color='yellow'/>
+                    onChange={onChange}
+                style={{width:'80vh',height:'5vh'}}></InputBase>
+              </AccordionDetails>
+              <IconButton className='icon'>
+                        <AddAlertIcon/>
+                    </IconButton >
+                    <IconButton >< PersonAddAltIcon className='icon'/></IconButton>
+                    <IconButton>< ColorLensIcon className='icon'/></IconButton>
+                    <IconButton><ImageIcon  className='icon' /></IconButton>
+                    <IconButton>< ArchiveIcon className='icon' /></IconButton>
+                    <IconButton> <MoreVertIcon className='icon'/></IconButton>
+                    <IconButton> <UndoIcon className='icon'/></IconButton>
+                    <IconButton><RedoIcon/></IconButton>
+              <IconButton onClick={onSubmit}  >   
+                        <AddCircleTwoToneIcon style = {{marginLeft:'30vh'}} fontSize='large' color='yellow'/>
                     </IconButton>
-                    </div>
-                    
-                </Form>
-                </>
-                )}
-            </Formik>
-
-        
-        
-    )
+                   
+            </Accordion>
+            </Paper>
+           
+          </div>
+                
+    )        
+    
 }
  
