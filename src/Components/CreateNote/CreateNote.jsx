@@ -48,6 +48,8 @@ export default function CreateNote(props){
            setExpanded(false);
             createNote(data).then((response)=>{
                 props.passNote(data)
+                setData({title:'',
+                        description:''})
             }).catch((err)=>alert('failed',err))
         
        }
