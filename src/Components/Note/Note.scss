@@ -1,0 +1,34 @@
+.note{
+    margin-top: 5px;
+    margin-left: 100px
+}
+
+.card{
+    width: 300px;
+    margin: 10px;
+}
+
+.AllNotes{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: baseline;
+    justify-content: flex-start;
+    align-content: space-between;
+    margin-left: 250px;
+}
+// .mainContent{
+//     flex:0px 3;
+// }
+// .sideBarItem{
+//     flex:1 0 0 ;
+// }
+
+// .mainItem{
+//     order:2
+// }
+// .sideLeft{
+//     order:1
+// }
+// .sideRight{
+//     order:3
+// }
