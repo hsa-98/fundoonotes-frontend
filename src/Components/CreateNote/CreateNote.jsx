@@ -46,8 +46,9 @@ export default function CreateNote(props){
        }
        const onSubmit=(event)=>{
            setExpanded(false);
-            createNote(data).then((response)=>props.passNote(data))
-                            .catch((err)=>alert('failed',err))
+            createNote(data).then((response)=>{
+                props.passNote(data)
+            }).catch((err)=>alert('failed',err))
         
        }
     return(                
@@ -62,6 +63,7 @@ export default function CreateNote(props){
                 <InputBase
                     id='title'
                     placeholder='Title'
+                    value={data.title}
                     onChange={onChange}
                     style={{width:'80vh',height:'5vh'}}>
                 </InputBase>
@@ -70,6 +72,7 @@ export default function CreateNote(props){
               <InputBase
                     id='description'
                     placeholder='Note'
+                    value={data.description}
                     onChange={onChange}
                 style={{width:'80vh',height:'5vh'}}></InputBase>
               </AccordionDetails>

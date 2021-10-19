@@ -83,12 +83,10 @@ const Login = ()=>{
             onSubmit = {values=>{
               login(values)
                 .then(response => {
-
                   const token = response.data.data.token
-                  
+                  console.log(response);
                   localStorage.setItem('token', token);
-                  
-                      history.push('/dashboard')
+                  history.push('/dashboard');
                 })
                 .catch(error=>console.log(error))
             }}
