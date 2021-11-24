@@ -83,8 +83,7 @@ const Login = ()=>{
             onSubmit = {values=>{
               login(values)
                 .then(response => {
-                  const token = response.data.data.token
-                  console.log(response);
+                  const token = response.data.data.token;
                   localStorage.setItem('token', token);
                   history.push('/dashboard');
                 })
@@ -98,7 +97,9 @@ const Login = ()=>{
               
                   <Grid align = 'center'>
                       <FundooHeader/>
-                      <h2 >Sign In</h2>
+                      <span id = 'header'>
+                        <h2 >Sign In</h2>
+                      </span>
                   </Grid>
                   <Form onSubmit={formik.handleSubmit}> 
                   <Field id="emailId"
@@ -131,7 +132,9 @@ const Login = ()=>{
           
                   <Typography>
                     
-                    <Button type = "Submit" 
+                    <Button 
+                    id = "signIn"
+                    type = "Submit" 
                     color = "primary" 
                     variant = "contained"  
                     className='signIn' fullWidth>

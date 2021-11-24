@@ -85,7 +85,9 @@ const Register = ()=>{
                     <>
                     <Grid>
                     <FundooHeader/>
+                   
                     <h4>Please Fill Details to Create an Account</h4>
+                   
                     </Grid>
                     
                     <Form onSubmit = {formik.handleSubmit}>
@@ -168,6 +170,7 @@ const Register = ()=>{
 
                             <Typography className = 'button'>
                                 <Button type = "Submit" 
+                                    id = "register"
                                     className = "button" 
                                     variant ="contained"
                                     color='primary' 
