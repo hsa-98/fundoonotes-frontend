@@ -1,19 +1,35 @@
-import { Card, CardContent, Grid } from "@mui/material";
+
 import './Note.scss'
-import { getNotes } from "../../Services/Note";
-import { useState ,useEffect} from "react";
-export default function Note(props){
+import * as React from 'react'
+import NoteCard from '../NoteCard/NoteCard'
+import UpdateNote from '../UpdateNote/UpdateNote'
+import { render } from '@testing-library/react';
+
+export default function Note({addData,updateNote}){
+//   const[width,setWidth] = React.useState('300px');
+//   const card = {
+//     width:width,
+//     margin: '10px'
+// }
+const update = (val,index)=>{
+  const info = {
+    val:val,
+    index:index
+  };
+  updateNote(info);
+  
+  }
   
   return(
+    
        <div className='AllNotes'> 
-    {(props.data).map((val,index)=>{
+    {(addData).map((val,index)=>{
+     
+        const key = val._id;
         return (
-            <Card className='card'>
-            <CardContent>
-                <h3>{val.title}</h3>
-                <p>{val.description}</p>
-            </CardContent>
-          </Card>
+          <div key={key} onClick={()=>{update(val,index)}}>
+           <NoteCard data={val} ></NoteCard>
+          </div>
          )
       })}
      </div>    
