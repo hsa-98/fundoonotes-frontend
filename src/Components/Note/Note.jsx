@@ -2,10 +2,9 @@
 import './Note.scss'
 import * as React from 'react'
 import NoteCard from '../NoteCard/NoteCard'
-import UpdateNote from '../UpdateNote/UpdateNote'
-import { render } from '@testing-library/react';
 
-export default function Note({addData,updateNote}){
+
+export default function Note({addData,updateNote,deleteNote}){
 //   const[width,setWidth] = React.useState('300px');
 //   const card = {
 //     width:width,
@@ -19,6 +18,14 @@ const update = (val,index)=>{
   updateNote(info);
   
   }
+
+  const handleDelete = (id,index)=>{
+    const info = {
+      id:id,
+      index:index
+    }
+    deleteNote(info);
+  }
   
   return(
     
@@ -27,8 +34,8 @@ const update = (val,index)=>{
      
         const key = val._id;
         return (
-          <div key={key} onClick={()=>{update(val,index)}}>
-           <NoteCard data={val} ></NoteCard>
+          <div key={key} >
+           <NoteCard data={val} update={update} handleDelete={handleDelete} index={index}></NoteCard>
           </div>
          )
       })}
