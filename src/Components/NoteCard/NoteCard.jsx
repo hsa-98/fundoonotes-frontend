@@ -5,7 +5,6 @@ import GroupsOutlinedIcon from '@mui/icons-material/GroupsOutlined';
 import ColorLensOutlinedIcon from '@mui/icons-material/ColorLensOutlined';
 import ImageOutlinedIcon from '@mui/icons-material/ImageOutlined';
 import ArchiveOutlinedIcon from '@mui/icons-material/ArchiveOutlined';
-import MoreVertOutlinedIcon from '@mui/icons-material/MoreVertOutlined';
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 
 export default function NoteCard(props){

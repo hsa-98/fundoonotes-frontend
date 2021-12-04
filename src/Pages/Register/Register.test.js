@@ -38,8 +38,10 @@ describe('Register Tests',()=>{
             password:'Harsh!123',
             confirmPassword:'Harsh!123'
         };
-        const firstName = wrapper.find('#firstName');
-        console.log(firstName.value())
+        (wrapper.find('Field[id="firstName"]')).simulate("change",{target : {value:"foo"}})
+      
+        const firstName = wrapper.find('Field[id="firstName"]');
+        console.log(firstName)
         const lastName = wrapper.find('#lastName');
         const email = wrapper.find('#emailId');
         const password = wrapper.find('#password');

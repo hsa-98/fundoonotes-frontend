@@ -16,7 +16,8 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import UndoIcon from '@mui/icons-material/Undo';
 import RedoIcon from '@mui/icons-material/Redo';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-
+import OnClickOut from 'react-onclickoutside';
+import ClickAwayListener from '@mui/material/ClickAwayListener';
 export default function CreateNote(props){
     const [expanded, setExpanded] = React.useState(false);
 
@@ -45,28 +46,37 @@ export default function CreateNote(props){
             })
        }
        const onSubmit=(event)=>{
-           setExpanded(false);
+           if(data.title ==='' && data.description ===''){
+               setExpanded(false);
+           }
+           else{
+            setExpanded(false);
             createNote(data).then((response)=>{
                 props.passNote(data)
                 setData({title:'',
                         description:''})
             }).catch((err)=>alert('failed',err))
+           }
+
+           
         
        }
     return(                
         <div>
               
-                 <Paper elevation={5} style = {{marginTop:'5vh',marginLeft:'50vh', marginBottom:'5vh',width:'100vh' }}> 
-            <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')} > 
+                 <Paper elevation={5}  style = {{marginTop:'5vh',marginLeft:'50vh', marginBottom:'5vh',width:'100vh'  }}> 
+                 <ClickAwayListener onClickAway={onSubmit}>
+            <Accordion id = 'accordion' expanded={expanded === 'panel1'}  onChange={handleChange('panel1')} > 
               <AccordionSummary  
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1bh-content"
-                id="panel1bh-header">
+                id="panel-header">
                 <InputBase
                     id='title'
                     placeholder='Title'
                     value={data.title}
                     onChange={onChange}
+                
                     style={{width:'80vh',height:'5vh'}}>
                 </InputBase>
               </AccordionSummary>
@@ -93,6 +103,7 @@ export default function CreateNote(props){
                     </IconButton>
                    
             </Accordion>
+            </ClickAwayListener>
             </Paper>
            
           </div>

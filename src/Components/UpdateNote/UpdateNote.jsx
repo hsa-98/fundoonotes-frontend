@@ -20,7 +20,7 @@ const UpdateNote =  forwardRef ((props,ref)=>{
             title:props.updateData.title,
             description:props.updateData.description,
         })
-    },[props.updateData.title,props.updateData.description,props.updateData.id])
+    },[props.updateData])
     useImperativeHandle(
         ref,
         ()=>({

@@ -7,9 +7,9 @@ import { useHistory} from 'react-router';
 import FundooHeader from '../../Components/FundooHeader/FundooHeader';
 
 const Login = ()=>{
-    const paperStyle = {padding :'10vh',height:'70vh',width:'80vh',margin:"20px auto"};
+    
    
-    const fieldStyle = {margin:'5vh 0'};
+    
     const history = useHistory();    
 
 
@@ -93,7 +93,7 @@ const Login = ()=>{
           {formik=>(
         <Grid>
           
-            <Paper elevation = {10} style = {paperStyle}>
+            <Paper elevation = {10} className = 'paperStyle'>
               
                   <Grid align = 'center'>
                       <FundooHeader/>
@@ -127,7 +127,7 @@ const Login = ()=>{
                       helperText = {<ErrorMessage name = 'password'/>}
                       value={formik.values.password}
                       required  
-                      style = {fieldStyle}/>
+                      className = 'fieldStyle'/>
                       
           
                   <Typography>
