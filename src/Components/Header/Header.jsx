@@ -34,6 +34,7 @@ import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 const drawerWidth = 240;
 
 
+
 const openedMixin = (theme) => ({
   width: drawerWidth,
   transition: theme.transitions.create('width', {
@@ -104,15 +105,22 @@ export default function MiniDrawer() {
   const [open, setOpen] = React.useState(false);
   const history=useHistory();
   const [length,setLength] = React.useState({length:'100vh'})
+  const [pad,setPad] = React.useState('15vh')
 
+  const searchBar={
+    marginLeft: pad,
+    marginRight: pad
+    }
   const handleDrawerOpen = () => {
     setOpen(true);
     setLength(()=>{return {length:'70vh'}})
+    setPad('7vh');
   };
 
   const handleDrawerClose = () => {
     setOpen(false);
     setLength(()=>{return {length:'100vh'}})
+    setPad('15vh')
   };
 
   const logout=()=>{
@@ -121,6 +129,7 @@ export default function MiniDrawer() {
   }
 
   return (
+  
     <Box sx={{ display: 'flex' }}>
        <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
       <CssBaseline />
@@ -149,11 +158,12 @@ export default function MiniDrawer() {
               >
                 FundooNotes
           </Typography>
-          <Box  className = 'searchBar'>
+          <Box  style= {searchBar}>
             <TextField
                 type='text' 
                 label='Search'
                 variant='filled' 
+                elevation='5px'
                style={{width:length.length}}
                 startadornment={
                   <InputAdornment position="start">
@@ -164,34 +174,35 @@ export default function MiniDrawer() {
           </Box>
           <Box >
             <IconButton   color="inherit">
-                <Refresh  fontSize='small'/>
+                <Refresh  fontSize='medium'/>
             </IconButton>
             <IconButton color="inherit">
-                <GridView fontSize='small'/>
+                <GridView fontSize='medium'/>
             </IconButton>
             <IconButton color='inherit'>
-              <Settings fontSize='small'/>
+              <Settings fontSize='medium'/>
             </IconButton>
           </Box>
           <Box className='accountButton'>
             
               <IconButton>
-              <Apps fontSize='small'/>
+              <Apps fontSize='medium'/>
               </IconButton>
               <IconButton onClick={logout}>
-              <AccountCircle fontSize='small' />
+              <AccountCircle fontSize='medium' />
               </IconButton>
           </Box>
         </Toolbar>
       </AppBar>
       <Drawer variant="permanent" open={open}>
+        <div>
         <DrawerHeader>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
           </IconButton>
         </DrawerHeader>
-      
-        <List>
+        </div>
+        <List onMouseOver = {handleDrawerOpen} onMouseLeave = {handleDrawerClose}>
          
           <ListItem style={{marginTop:'15px'}}>
             <ListItemIcon>

@@ -16,7 +16,6 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import UndoIcon from '@mui/icons-material/Undo';
 import RedoIcon from '@mui/icons-material/Redo';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import OnClickOut from 'react-onclickoutside';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
 export default function CreateNote(props){
     const [expanded, setExpanded] = React.useState(false);

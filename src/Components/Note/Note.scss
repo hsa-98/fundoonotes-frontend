@@ -17,6 +17,21 @@
     align-content: space-between;
     margin-left: 250px;
 }
+
+.my-masonry-grid {
+    display: -webkit-box; /* Not needed if autoprefixing */
+    display: -ms-flexbox; /* Not needed if autoprefixing */
+    display: flex;
+    margin-left: 70px;
+    margin-right:50px;
+    margin-top: 80px; /* gutter size offset */
+    width: auto;
+    height: auto;
+    padding-left: 100px;
+  }
+  .my-masonry-grid_column {
+    padding-left: 20px; /* gutter size */
+  }
 // .mainContent{
 //     flex:0px 3;
 // }

@@ -50,7 +50,6 @@ const UpdateNote =  forwardRef ((props,ref)=>{
               <DialogTitle  >
             <TextField
             autoFocus
-            
             margin="dense"
             id="title"
             InputProps={{ disableUnderline: true }}

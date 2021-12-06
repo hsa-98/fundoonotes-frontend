@@ -2,7 +2,7 @@
 import './Note.scss'
 import * as React from 'react'
 import NoteCard from '../NoteCard/NoteCard'
-
+import Masonry from 'react-masonry-css'
 
 export default function Note({addData,updateNote,deleteNote}){
 //   const[width,setWidth] = React.useState('300px');
@@ -28,18 +28,24 @@ const update = (val,index)=>{
   }
   
   return(
-    
-       <div className='AllNotes'> 
+    <Masonry    breakpointCols={3}
+    className="my-masonry-grid"
+            columnClassName="my-masonry-grid_column">
+   
+      
     {(addData).map((val,index)=>{
      
         const key = val._id;
         return (
+         
           <div key={key} >
            <NoteCard data={val} update={update} handleDelete={handleDelete} index={index}></NoteCard>
           </div>
+       
          )
       })}
-     </div>    
+     
+     </Masonry>  
   )
 
 }
