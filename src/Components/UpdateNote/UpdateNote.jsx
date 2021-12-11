@@ -6,7 +6,7 @@ import DialogContent from '@mui/material/DialogContent';
 import { TextField } from '@material-ui/core';
 import { updateNotes } from '../../Services/Note';
 import '../UpdateNote/UpdateNote.scss'
-
+import DialogContentText from '@mui/material/DialogContentText';
   
 const UpdateNote =  forwardRef ((props,ref)=>{
 
@@ -47,12 +47,14 @@ const UpdateNote =  forwardRef ((props,ref)=>{
     return(
         <Dialog open={open} onClose={handleClose} className='update' >
               <form>
-              <DialogTitle  >
+              <DialogTitle>
             <TextField
+            multiline
             autoFocus
             margin="dense"
             id="title"
             InputProps={{ disableUnderline: true }}
+            style={{fontWeight:'900'}}
             type="text"
             name='title'
             value={data.title}

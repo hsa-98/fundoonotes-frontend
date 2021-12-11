@@ -28,9 +28,10 @@ const update = (val,index)=>{
   }
   
   return(
+    <div className='AllNotes'>
     <Masonry    breakpointCols={3}
     className="my-masonry-grid"
-            columnClassName="my-masonry-grid_column">
+      columnClassName="my-masonry-grid_column">
    
       
     {(addData).map((val,index)=>{
@@ -45,7 +46,8 @@ const update = (val,index)=>{
          )
       })}
      
-     </Masonry>  
+     </Masonry>
+     </div>
   )
 
 }

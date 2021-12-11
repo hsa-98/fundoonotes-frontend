@@ -164,6 +164,7 @@ export default function MiniDrawer() {
                 label='Search'
                 variant='filled' 
                 elevation='5px'
+                borderRadius='5px'
                style={{width:length.length}}
                 startadornment={
                   <InputAdornment position="start">

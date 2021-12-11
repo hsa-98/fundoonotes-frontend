@@ -9,13 +9,14 @@
 // }
 
 
-.AllNotes{
-    display: flex;
-    flex-flow: row wrap;
-    align-items: baseline;
-    justify-content: flex-start;
-    align-content: space-between;
-    margin-left: 250px;
+ @media (max-width: 550px){
+     .AllNotes{ display: flex;
+        flex-flow: row wrap;
+        align-items: baseline;
+        justify-content: flex-start;
+        align-content: space-between;
+        margin-left: 250px;}
+   
 }
 
 .my-masonry-grid {

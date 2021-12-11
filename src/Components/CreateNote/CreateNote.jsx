@@ -98,8 +98,8 @@ export default function CreateNote(props){
                     <IconButton> <UndoIcon className='icon'/></IconButton>
                     <IconButton><RedoIcon/></IconButton>
               <IconButton onClick={onSubmit}  >   
-                        <AddCircleTwoToneIcon style = {{marginLeft:'30vh'}} fontSize='large' color='yellow'/>
-                    </IconButton>
+                        <h6 style = {{marginLeft:'28vh'}} fontSize='large'> Close</h6>                    
+                        </IconButton>
                    
             </Accordion>
             </ClickAwayListener>
